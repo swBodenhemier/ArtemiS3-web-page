@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: solid 1px;
+  border-bottom-color: #aaa;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+}
