@@ -1,5 +1,6 @@
 html {
   font-family: sans-serif;
+  background-color: #fff5ec;
 }
 
 .header {
@@ -11,6 +12,8 @@ html {
   right: 8px;
   display: flex;
   justify-content: center;
+  background-color: black;
+  color: white;
 }
 .header-content {
   max-width: 1000px;
@@ -38,6 +41,7 @@ main {
   border: solid 1px;
   border-color: #aaa;
   border-radius: 5px;
+  background-color: #fe8821;
 }
 
 .segment {
@@ -45,4 +49,5 @@ main {
   border-color: #aaa;
   border-radius: 5px;
   padding: 10px;
+  background-color: #fff5ec;
 }
