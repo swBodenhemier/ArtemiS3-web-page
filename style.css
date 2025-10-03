@@ -1,19 +1,34 @@
+:root {
+  --bg: #fff5ec;
+  --highlight: #fe8821;
+  --border1: #ffae67;
+  --border2: #ff7f0f;
+  --header: black;
+  --text1: black;
+  --text2: white;
+}
+
 html {
   font-family: sans-serif;
-  background-color: #fff5ec;
+  background-color: var(--bg);
+  min-height: 100vh;
+  overscroll-behavior-x: none;
+  overflow-x: hidden;
 }
 
 .header {
   border-bottom: solid 1px;
-  border-bottom-color: #aaa;
+  border-bottom-color: var(--header);
   width: 100vw;
   margin: 0;
   position: relative;
   right: 8px;
+  bottom: 8px;
   display: flex;
-  justify-content: center;
-  background-color: black;
-  color: white;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--header);
+  color: var(--text2);
 }
 .header-content {
   max-width: 1000px;
@@ -21,6 +36,28 @@ html {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  border-bottom: solid 1px var(--border1);
+}
+
+.nav {
+  padding: 10px;
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  justify-content: start;
+  gap: 20px;
+  font-size: 14pt;
+}
+
+.navOption {
+  padding: 5px 10px;
+  outline: solid 1px var(--border1);
+  border-radius: 5px;
+  color: var(--text2);
+  text-decoration: none;
+}
+.navOption:hover {
+  outline-width: 2px;
 }
 
 main {
@@ -29,25 +66,27 @@ main {
   align-items: center;
   padding: 10px;
   overflow-y: auto;
+  width: 100%;
+  background-color: #fff5ec;
 }
 
 .content {
-  padding: 10px;
+  padding: 10px 30px;
   max-width: 1000px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   border: solid 1px;
-  border-color: #aaa;
+  border-color: var(--border2);
   border-radius: 5px;
-  background-color: #fe8821;
+  background-color: var(--highlight);
 }
 
 .segment {
   border: solid 1px;
-  border-color: #aaa;
+  border-color: var(--border2);
   border-radius: 5px;
   padding: 10px;
-  background-color: #fff5ec;
+  background-color: var(--bg);
 }
