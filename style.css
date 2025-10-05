@@ -101,9 +101,10 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
-#sponsor {
+.inline {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .subheader {
@@ -122,4 +123,20 @@ main {
   flex-direction: column;
   align-items: center;
   min-width: fit-content;
+}
+
+.memberPage {
+  display: flex;
+  flex-wrap: wrap;
+}
+.subsection {
+  width: fit-content;
+}
+.subsection h2 {
+  margin: 0;
+}
+
+ul li {
+  position: relative;
+  left: 20px;
 }
