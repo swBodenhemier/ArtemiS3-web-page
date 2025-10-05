@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ArtemiS3</title>
     <link rel="stylesheet" href="../style.css" />
-    <link rel="icon" href="../artemiS3_icon.png" type="image/x-icon" />
+    <link rel="icon" href="../images/artemiS3_icon.png" type="image/x-icon" />
   </head>
   <body>
     <div class="header">
       <div class="header-content">
         <a href="/"
-          ><img src="../artemis3_large.png" width="70px" height="70px"
+          ><img src="../images/artemis3_large.png" width="70px" height="70px"
         /></a>
         <h1>ArtemiS3</h1>
         <span style="width: 70px"></span>
@@ -25,6 +25,59 @@
         <a href="../demo/" class="navOption">Demo</a>
       </div>
     </div>
-    <main></main>
+    <main>
+      <div class="subheader">
+        <h2>Problem and Requirements</h2>
+      </div>
+      <div class="content">
+        <div class="segment">
+          <h3>Problem</h3>
+          <p>
+            The current workflow used by USGS has main three steps. First they
+            collect the mission data from NASA, next they store it on the cloud
+            using Amazon Web Services' S3 Buckets, and lastly when the data is
+            needed it is accessed via a simple S3 file browser.
+          </p>
+          <p>
+            This last step comes with a few problems, most stemming from the
+            vast size of the dataset they are working with (it is in the range
+            of multiple petabytes). In order to find specific pieces of data,
+            they must root through thousands of folders and related files, which
+            can massively slow down the workflow.
+          </p>
+          <ul>
+            Some specific limitations that they have mentioned are:
+            <li>
+              There is no full-text or metadata search option for the files.
+            </li>
+            <li>Users must manually sift through large repositories.</li>
+            <li>
+              Limit file visualization, plus the only indication of a file's
+              contents is its name and data type.
+            </li>
+            <li>
+              Security risks could be going undetected without the proper audit
+              tools .
+            </li>
+          </ul>
+        </div>
+        <div class="segment">
+          <h3>Requirements</h3>
+          <p>
+            As the project goes on we plan to hold regular meetings with our
+            client to validate and refine the requirements. Our high level goals
+            include a full-text and metadata search and the ability to tag and
+            filter files, further goals include advanced file visualization and
+            security auditing.
+          </p>
+          <p>
+            We will begin with a technical investigation where we will explore
+            several technologies such as Boto3, Meilisearch, and React. In
+            addition, we will survey existing S3 search tools for strengths and
+            limitations and address scalability.
+          </p>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
