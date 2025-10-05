@@ -51,13 +51,15 @@ html {
 
 .navOption {
   padding: 5px 10px;
-  outline: solid 1px var(--border1);
+  outline: 1px solid var(--border1);
   border-radius: 5px;
   color: var(--text2);
   text-decoration: none;
 }
 .navOption:hover {
-  outline-width: 2px;
+  outline-width: 3px;
+  outline-color: var(--highlight);
+  color: var(--highlight);
 }
 
 main {
@@ -86,7 +88,7 @@ main {
 .segment {
   border: solid 1px;
   border-color: var(--border2);
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   background-color: var(--bg);
 }
