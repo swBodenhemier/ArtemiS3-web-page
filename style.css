@@ -9,6 +9,8 @@
   --maxWidth: 900px;
   --shadowColor: #b7631a;
   --shadow: 0 2px 4px 0 var(--shadowColor), 0 1px 2px -1px var(--shadowColor);
+  --shadow-lg: 0 4px 6px 0 var(--shadowColor),
+    3px 3px 4px -1px var(--shadowColor);
 }
 
 html {
@@ -61,9 +63,10 @@ html {
   box-shadow: var(--shadow);
 }
 .navOption:hover {
-  outline-width: 3px;
+  outline-width: 2px;
   outline-color: var(--highlight);
   color: var(--highlight);
+  box-shadow: var(--shadow-lg);
 }
 
 main {
@@ -82,19 +85,20 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: solid 1px;
-  border-color: var(--borderDark);
+  border: solid 1px var(--borderDark);
   border-radius: 5px;
   background-color: var(--highlight);
 }
 
 .segment {
-  border: solid 1px;
-  border-color: var(--borderDark);
+  border: solid 1px var(--borderDark);
   border-radius: 10px;
   padding: 10px 20px;
   background-color: var(--bg);
   box-shadow: var(--shadow);
+}
+.segment:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 #sponsor {
