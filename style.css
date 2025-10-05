@@ -1,11 +1,14 @@
 :root {
   --bg: #fff5ec;
   --highlight: #fe8821;
-  --border1: #ffae67;
-  --border2: #ff7f0f;
+  --borderLight: #ffae67;
+  --borderDark: #ff7f0f;
   --header: black;
   --text1: black;
   --text2: white;
+  --maxWidth: 900px;
+  --shadowColor: #b7631a;
+  --shadow: 0 2px 4px 0 var(--shadowColor), 0 1px 2px -1px var(--shadowColor);
 }
 
 html {
@@ -31,18 +34,18 @@ html {
   color: var(--text2);
 }
 .header-content {
-  max-width: 1000px;
+  max-width: var(--maxWidth);
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  border-bottom: solid 1px var(--border1);
+  border-bottom: solid 1px var(--borderLight);
 }
 
 .nav {
   padding: 10px;
   display: flex;
-  max-width: 1000px;
+  max-width: var(--maxWidth);
   width: 100%;
   justify-content: start;
   gap: 20px;
@@ -51,10 +54,11 @@ html {
 
 .navOption {
   padding: 5px 10px;
-  outline: 1px solid var(--border1);
+  outline: 1px solid var(--borderLight);
   border-radius: 5px;
   color: var(--text2);
   text-decoration: none;
+  box-shadow: var(--shadow);
 }
 .navOption:hover {
   outline-width: 3px;
@@ -66,29 +70,52 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
   overflow-y: auto;
   width: 100%;
   background-color: #fff5ec;
 }
 
 .content {
-  padding: 10px 30px;
-  max-width: 1000px;
+  padding: 10px 20px;
+  max-width: var(--maxWidth);
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   border: solid 1px;
-  border-color: var(--border2);
+  border-color: var(--borderDark);
   border-radius: 5px;
   background-color: var(--highlight);
 }
 
 .segment {
   border: solid 1px;
-  border-color: var(--border2);
+  border-color: var(--borderDark);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+#sponsor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subheader {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.teamList {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: fit-content;
 }
