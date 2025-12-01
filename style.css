@@ -136,7 +136,15 @@ main {
   margin: 0;
 }
 
+.req-list {
+  margin-top: 4px;
+}
+
 ul li {
   position: relative;
   left: 20px;
+}
+
+#requirements {
+  padding-left: 10px;
 }

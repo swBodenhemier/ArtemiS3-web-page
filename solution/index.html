@@ -44,14 +44,157 @@
             and organization system built for collaboration, and automated
             checks for risky security configurations.
           </p>
+          <p>
+            With ArtemiS3, instead of manually browsing through thousands of
+            files a user could simply search "Mars Imagery 2020" and instantly
+            get results with previews, metadata, and filtering options.
+            Researchers could now spend more time actually using the data rather
+            than searching for it.
+          </p>
         </div>
         <div class="segment">
           <h3>Technologies</h3>
-          <p>
-            We are still deliberating and researching the technologies we will
-            use for the project, but we will make sure to update this page once
-            we have made some decisions!
-          </p>
+          <ul style="padding-right: 20px">
+            <li>
+              <h4>Meilisearch — Search Engine</h4>
+              <p>
+                Meilisearch is a lightweight, open-source search engine designed
+                for fast full-text search, typo tolerance, filtering, and
+                relevance tuning.
+              </p>
+              <p>
+                It offers a generous free tier, extremely easy integration,
+                strong Python support, and simpler setup than Elasticsearch
+                while still meeting all functional search requirements.
+              </p>
+            </li>
+            <li>
+              <h4>Svelte — Frontend Framework</h4>
+              <p>
+                Svelte is a reactive JavaScript framework that compiles
+                components into optimized vanilla JavaScript, removing the need
+                for a virtual DOM.
+              </p>
+              <p>
+                Svelte provides faster performance on small–medium apps, has an
+                easier learning curve than React, and allows smooth UI updates
+                for fast-changing search results.
+              </p>
+            </li>
+            <li>
+              <h4>TailwindCSS — Styling Framework</h4>
+              <p>
+                TailwindCSS is a utility-first CSS framework that uses atomic
+                classes to rapidly build consistent, responsive UI components.
+              </p>
+              <p>
+                It enables rapid prototyping, efficient styling, strong
+                consistency, and avoids the bulkiness of Bootstrap or the manual
+                work of SCSS.
+              </p>
+            </li>
+            <li>
+              <h4>FastAPI — Backend Framework</h4>
+              <p>
+                FastAPI is a modern Python framework offering asynchronous
+                support, automatic documentation, and Pydantic-based validation.
+              </p>
+              <p>
+                It excels at high-concurrency, I/O-heavy tasks, integrates
+                cleanly with AWS and Python tools, and reduces development
+                overhead compared to Flask.
+              </p>
+            </li>
+            <li>
+              <h4>Boto3 — AWS S3 SDK</h4>
+              <p>
+                Boto3 is the official AWS SDK for Python, providing high-level
+                tools for interacting with AWS S3 and related services.
+              </p>
+              <p>
+                It offers seamless Python integration, robust pagination and
+                retry handling, strong AWS support, and avoids cross-language
+                runtime complexity.
+              </p>
+            </li>
+            <li>
+              <h4>AWS EC2 - Web Server Hosting</h4>
+              <p>
+                AWS Elastic Compute Cloud (EC2) is a service which provides fast
+                and affordable virtual server instances hosted on the cloud
+                which can be used for various purposes such as hosting web
+                applications.
+              </p>
+              <p>
+                EC2 Instances are highly scalable and integrate well with the
+                rest of AWS, support strong and reliable infrastructure, and are
+                simple to set up and monitor.
+              </p>
+            </li>
+            <li>
+              <h4>Docker - Web-App Containerization</h4>
+              <p>
+                Docker is a platform for creating, deploying, and running
+                applications in lightweight, portable containers.
+              </p>
+              <p>
+                Using docker to containerize the Web Application ensures
+                consistent environments from development to production and makes
+                service architecture easier to manage.
+              </p>
+            </li>
+            <li>
+              <h4>NGINX - Reverse Proxy</h4>
+              <p>
+                NGINX is a high-performance web server and reverse proxy, also
+                commonly used for load balancing.
+              </p>
+              <p>
+                It is extremely fast and resource efficient and includes simple
+                configuration for reverse proxy and SSL termination
+              </p>
+            </li>
+            <li>
+              <h4>Redis - Hot Path Caching</h4>
+              <p>
+                Redis is an in-memory key-value data store often used as a cache
+                or message broker.
+              </p>
+              <p>
+                Redis is extremely low latency which makes it ideal for caching,
+                plus it supports advanced structures and is much faster than
+                traditional databases for most use cases.
+              </p>
+            </li>
+            <li>
+              <h4>PostgreSQL — Production Database</h4>
+              <p>
+                PostgreSQL is an industry-leading open-source relational
+                database known for ACID compliance, scalability, and strong SQL
+                capabilities.
+              </p>
+              <p>
+                It provides reliable concurrency, consistent data handling,
+                cloud-ready deployment, and better structure than MongoDB for
+                user-related data.
+              </p>
+            </li>
+            <li>
+              <h4>SQLite — Development Database</h4>
+              <p>
+                SQLite is a lightweight, file-based SQL database bundled with
+                Python, ideal for local development.
+              </p>
+              <p>
+                It requires zero setup, integrates cleanly with FastAPI, and
+                allows a seamless transition to PostgreSQL for production.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="segment">
+          <h3>Architecture Diagram</h3>
+          <img src="../images/ArtemiS3_F2025_Architecture.png" width="100%" />
         </div>
       </div>
     </main>

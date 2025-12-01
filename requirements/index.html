@@ -33,17 +33,24 @@
         <div class="segment">
           <h3>Problem</h3>
           <p>
-            The current workflow used by USGS has main three steps. First they
-            collect the mission data from NASA, next they store it on the cloud
-            using Amazon Web Services' S3 Buckets, and lastly when the data is
-            needed it is accessed via a simple S3 file browser.
+            In recent years, USGS and NASA have been shifting their vast
+            planetary datasets into the cloud. Currently they use Amazon Web
+            Services (AWS) Simple Storage Service (S3) to host these datasets.
           </p>
           <p>
-            This last step comes with a few problems, most stemming from the
-            vast size of the dataset they are working with (it is in the range
-            of multiple petabytes). In order to find specific pieces of data,
-            they must root through thousands of folders and related files, which
-            can massively slow down the workflow.
+            The current workflow used by USGS has main three steps. First they
+            collect the mission data from NASA, next they store it on the cloud
+            using AWS S3 Buckets, and lastly when the data is needed it is
+            accessed via a simple S3 file browser.
+          </p>
+          <p>
+            This last step comes with a few problems, stemming from both the
+            vast size of the dataset they are working with, which is in the
+            range of multiple petabytes, and the current tool that they are
+            using, which is a simple file explore like you might have on your
+            PC. In order to find specific pieces of data with this system, they
+            must manually root through thousands of folders and related files,
+            which can massively slow down the workflow.
           </p>
           <ul>
             Some specific limitations that they have mentioned are:
@@ -52,30 +59,195 @@
             </li>
             <li>Users must manually sift through large repositories.</li>
             <li>
-              Limit file visualization, plus the only indication of a file's
-              contents is its name and data type.
+              Limited file visualization, they cannot view file previews,
+              summaries, or the files themselves from the browser.
             </li>
             <li>
               Security risks could be going undetected without the proper audit
-              tools .
+              tools.
             </li>
           </ul>
         </div>
+
         <div class="segment">
           <h3>Requirements</h3>
-          <p>
-            As the project goes on we plan to hold regular meetings with our
-            client to validate and refine the requirements. Our high level goals
-            include a full-text and metadata search and the ability to tag and
-            filter files, further goals include advanced file visualization and
-            security auditing.
-          </p>
-          <p>
-            We will begin with a technical investigation where we will explore
-            several technologies such as Boto3, Meilisearch, and React. In
-            addition, we will survey existing S3 search tools for strengths and
-            limitations and address scalability.
-          </p>
+          <div id="requirements">
+            <div>
+              <h3>Requirements Acquisition</h3>
+              <p>
+                In order to formulate and finalize our list of project
+                requirements, we followed a four step process to ensure that our
+                client was happy with our project. First we held our initial
+                meeting with our client to discuss the problem the team was
+                facing, view a demonstration of their workflow, and discuss some
+                initial ideas for how to solve the problem. Next, we used what
+                we learned from this meeting to draft our initial requirements
+                document where we outlined the broad and high priority
+                requirements. We then iterated on this document following our
+                client's feedback while introducing more detailed and
+                non-functional requirements to the draft. We then completed our
+                finalized requirements document and presented it to our client
+                for approval.
+              </p>
+            </div>
+            <div id="domain-requirements">
+              <h3>Domain-Level Requirements</h3>
+              <ul>
+                <li>
+                  <b>Efficient Data Discovery:</b> Fast, accurate search over
+                  millions of S3 files via metadata and content indexing.
+                </li>
+                <li>
+                  <b>Intuitive User Experience:</b> Clear, organized UI suitable
+                  for novice and expert users.
+                </li>
+                <li>
+                  <b>Collaboration & Tagging:</b> Save searches, tag files, and
+                  share insights.
+                </li>
+                <li>
+                  <b>Scalable & Reliable Architecture:</b> Large-scale indexing,
+                  backups, and recovery.
+                </li>
+                <li>
+                  <b>Security & Privacy:</b> AWS-aligned read-only access and
+                  optional policy audits.
+                </li>
+                <li>
+                  <b>Open-Source & Reusable:</b> Containerized, deployable
+                  system for public S3 data managers.
+                </li>
+                <li>
+                  <b>Optional Visualization:</b> Map-based visualization for
+                  spatial metadata.
+                </li>
+              </ul>
+            </div>
+            <div id="functional-requirements">
+              <h3>Functional Requirements</h3>
+              <label>Must Have (MVP requirements)</label>
+              <ul class="req-list">
+                <li>
+                  <b>File Retrieval:</b> Backend processes search queries and
+                  returns results efficiently.
+                </li>
+                <li>
+                  <b>Metadata/Text Indexing:</b> Automated extraction of S3
+                  metadata and text into Meilisearch.
+                </li>
+                <li>
+                  <b>Search Page:</b> Main UI with search bar, filters, and
+                  results view.
+                </li>
+                <li>
+                  <b>Interactive Results:</b> Real-time metadata previews and
+                  filtering (Svelte + Tailwind).
+                </li>
+                <li>
+                  <b>Filtering & Sorting:</b> Advanced search refinement via UI
+                  + backend API.
+                </li>
+                <li>
+                  <b>Index Refresh:</b> Update search index when new S3 files
+                  are added.
+                </li>
+              </ul>
+              <label>Should Have</label>
+              <ul class="req-list">
+                <li>
+                  <b>Directory-Style Browsing:</b> File/folder explorer for
+                  search results or full bucket.
+                </li>
+                <li>
+                  <b>File Downloads:</b> Download files directly from the UI.
+                </li>
+                <li>
+                  <b>Search Snapshot Caching:</b> Automatic Meilisearch backups.
+                </li>
+                <li>
+                  <b>User Tagging:</b> Tag and annotate files for organization
+                  and collaboration.
+                </li>
+              </ul>
+              <label>Could Have</label>
+              <ul class="req-list">
+                <li>
+                  <b>User Accounts:</b> Personal settings and separate indexes.
+                </li>
+                <li>
+                  <b>Search History:</b> Recent searches for quick retrieval.
+                </li>
+                <li>
+                  <b>Geo-spatial Visualization:</b> In-browser map previews of
+                  geo-spatial files.
+                </li>
+                <li>
+                  <b>Security Analysis:</b> Bucket policy and ACL auditing.
+                </li>
+                <li>
+                  <b>Hot Path Caching:</b> Speed enhancement for popular
+                  queries.
+                </li>
+              </ul>
+            </div>
+            <div id="performance-requirements">
+              <h3>Performance Requirements</h3>
+              <ul>
+                <li>
+                  <b>Pending UI:</b> Show loading indicators during long
+                  operations.
+                </li>
+                <li>
+                  <b>Response Time:</b> Search results under 3 seconds for
+                  10,000 objects.
+                </li>
+                <li>
+                  <b>Indexing Speed:</b> ≥1,000 objects/min during indexing
+                  cycles.
+                </li>
+                <li>
+                  <b>Uptime:</b> 99% availability under normal conditions.
+                </li>
+                <li>
+                  <b>Security Compliance:</b> HTTPS-only traffic, AWS read-only
+                  IAM policies.
+                </li>
+                <li>
+                  <b>Scalability:</b> Performance maintained under high user
+                  load.
+                </li>
+                <li>
+                  <b>Usability:</b> Users must be able to complete a search
+                  within 2 minutes of entry.
+                </li>
+              </ul>
+            </div>
+            <div id="environmental-requirements">
+              <h3>Environmental Requirements</h3>
+              <ul>
+                <li>
+                  <b>AWS Hosting:</b> Deployed on AWS EC2 via Docker Compose.
+                </li>
+                <li>
+                  <b>Open Source:</b> Fully open-source and publicly available
+                  on GitHub.
+                </li>
+                <li>
+                  <b>Tech Stack:</b> Python + FastAPI, Svelte + Tailwind,
+                  PostgreSQL, Meilisearch.
+                </li>
+                <li><b>CI/CD:</b> Automated GitHub Actions pipeline.</li>
+                <li>
+                  <b>Monitoring:</b> Logs and metrics integrated with AWS
+                  CloudWatch.
+                </li>
+                <li>
+                  <b>Browser Accessibility:</b> Works across all major modern
+                  browsers.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </main>
